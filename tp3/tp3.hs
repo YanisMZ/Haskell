@@ -4,10 +4,10 @@ elem' element liste = foldl verifier False liste
     verifier dejaVu x = dejaVu || (x == element)
 
 --elem1 :: a -> [a] -> Bool
---elem1 x' xs = foldl(\acc x -> acc || x== x') False xs --on peut retirer le xs etat reduction elem1 x'  = foldl(\acc x -> acc || x== x') False 
+--elem1 x' xs = foldl(\acc x -> acc || x == x') False xs --on peut retirer le xs etat reduction elem1 x'  = foldl(\acc x -> acc || x== x') False 
 
---elem2 :: a -> [a] -> Bool
---elem2 x' xs = foldl(\acc x -> acc || x == x') False xs
+elem2 :: Eq a => a -> [a] -> Bool
+elem2 x' xs = foldl(\acc x -> acc || x == x') False xs
 
 
 map1 :: (a -> b) -> [a] -> [b]
@@ -74,9 +74,6 @@ fibonacciSeq2 :: [Integer]
 fibonacciSeq2 = 0 : 1 : zipWith (+) fibonacciSeq2 ( tail fibonacciSeq2)
 
 
-
-
-
 distrib :: a -> [a] -> [[a]]
 distrib x [] = [[x]]
 distrib y (x:xs) = (y:x:xs) : map(x:) xss
@@ -102,8 +99,8 @@ shuffles (x:xs) (y:ys) = s1 ++ s2
 
 unfold :: (a -> Bool) -> (a -> b) -> (a -> a) -> a -> [b]
 unfold p h t x
-| p x = []
-| otherwise = h x : unfold p h t (t x)
+  | p x = []
+  | otherwise = h x : unfold p h t (t x)
 
 
 
