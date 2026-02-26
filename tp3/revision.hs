@@ -111,8 +111,8 @@ cycle'' xs = f xs
     f [] = f xs
     f (y:ys) = y : f ys
 
-
-
+atFront :: a -> [[a]] -> [[a]]
+atFront x xss = map(x) ++ xss
 
 
 sumOddsEvens :: [Int] -> (Int, Int)
