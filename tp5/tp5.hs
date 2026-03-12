@@ -151,3 +151,7 @@ deleteBSTree x (Node l v r)
   | x < v     = Node (deleteBSTree x l) v r
   | x > v     = Node l v (deleteBSTree x r)
   | otherwise = deleteRootBSTree (Node l v r)
+
+
+
+
